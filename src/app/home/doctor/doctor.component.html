@@ -2,7 +2,7 @@
   <h3 class="display-4 text-center"> Doctor</h3>
   <div class="container">
    
-      <button class="btn btn-sm btn-info text-white"  data-toggle="modal"  data-target="#myModal" ><span class="glyphicon glyphicon-plus"></span>  Add Patient</button>
+      <button class="btn btn-sm btn-info text-white"  data-toggle="modal"  data-target="#myModal" ><span class="glyphicon glyphicon-plus"></span>  Add Doctor</button>
       <br>
       <br>
       <table class="table">
@@ -39,9 +39,32 @@
           </tr>
         </thead>
         <tbody>
-          <tr >
+          <tr *ngFor="let doc of service.list" >
             
-            <td>{{SysDoctorId}}</td>
+            <td>{{doc.SysDoctorId}}</td>
+            <td>{{doc.DoctorName}}</td>
+            <td>{{doc.SysClinicId}}</td>
+            <td>{{doc.ContactNo_}}</td>
+            <td>{{doc.SysHospitalId}}</td>
+            <td>{{doc.DoctorWhatsapp}}</td>
+            <td>{{doc.CreatedDate}}</td>
+            <td>{{doc.ServiceId}}</td>
+            <td>{{doc.Reg. No}}</td>
+            <td>{{doc.CNIC}}</td>
+            <td>{{doc.DOB}}</td>
+            <td>{{doc.FatherHusband}}</td>
+            <td>{{doc.IssueDate}}</td>
+            <td>{{doc.validitydate}}</td>
+            <td>{{doc.MartialStatus}}</td>
+            <td>{{doc.Gender}}</td>
+            <td>{{doc.Qualification}}</td>
+            <td>{{doc.Institute}}</td>
+            <td>{{doc.year}}</td>
+            <td>{{doc.country}}</td>
+            <td>{{doc.PermanentAddress}}</td>
+            <td>{{doc.HospitalClinicAddress}}</td>
+            
+            
             
             
             <td><button type="button" class="btn btn-warning btn-sm "  data-toggle="modal"  data-target="#myModal" (click)="populateForm(pnt)" ><span class="glyphicon glyphicon-pencil"> </span>  </button>  
