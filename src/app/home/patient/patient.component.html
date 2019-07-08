@@ -1,0 +1,166 @@
+<div class="jumbotron jumbotron-fluid">
+    <h3 class="display-4 text-center"> Patient</h3>
+    <div class="container">
+     
+        <button class="btn btn-sm btn-info text-white"  data-toggle="modal"  data-target="#myModal" ><span class="glyphicon glyphicon-plus"></span>  Add Patient</button>
+        <br>
+        <br>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              
+              <th scope="col">Patient</th>
+              <th scope="col">Father/Husband</th>
+              <th scope="col">ContactNo</th>
+              <th scope="col">DateOfBirth</th>
+              <th scope="col">MartialStatus</th>
+              <th scope="col">Gender</th>
+              
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let doc of service.list">
+              
+              <td></td>
+          
+              <td></td>
+             
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              
+              <td><button type="button" class="btn btn-warning btn-sm "  data-toggle="modal"  data-target="#myModal"  ><span class="glyphicon glyphicon-pencil"> </span>  </button>  
+                <button type="button" class="btn btn-danger btn-sm ">  <span class="glyphicon glyphicon-trash"></span></button></td>
+            </tr>
+            
+          </tbody>
+        
+        </table>
+        
+        
+        
+        <div class="container">
+          <!-- Modal -->
+          <div class="modal fade " id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg ">
+              <div class="modal-content">
+                <div class="modal-header">
+                  
+                  <h4 class="modal-title"><i class="fa fa-wheelchair"></i>Patient Form</h4>
+                </div>
+                <div class="modal-body">
+                <!--=============form==============-->
+        
+                <form  class="formset">
+                
+                <div class="form-group">
+                  <label>PatientName</label>
+                  <input  class="form-control" >
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6 form-group"> 
+                      <label>CNIC</label>
+                      <input  class="form-control" >
+                  </div>
+                  <div class="col-md-6 form-group" >
+                      <label>Father/Husband</label> 
+                      <input type="text" class="form-control" >
+                  </div>
+                </div>
+                 <div class="form-row">
+                    <div class="col-md-6 form-group" > 
+                        <label>DOB</label>
+                        <input type="text" class="form-control" >
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>ContactNumber</label>
+                        <input type="text" class="form-control" >
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6 form-group">
+                        <label>MartialStatus</label>
+                        <select class="form-control" >
+                            
+                            <option value="1">Single</option>
+                            <option value="2">Married</option>
+                            
+                          </select>
+                    </div>
+                    <div class="col-md-6 form-group" >
+                        <label>Gender</label>
+                        <select class="form-control" >
+                          
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="3">Other</option>
+                          </select>
+                    </div>
+                  </div>
+                
+                 
+                    
+                    <div class="form-row">
+                          <div class="col-md-6 form-group" > 
+                              <label>Email</label>
+                              <input  class="form-control" >
+                          </div>
+                          <div class="col-md-6 form-group" >
+                              <label>Monthly Income</label>
+                              <input type="text" class="form-control" >
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <label>PresentAddress</label>
+                            <input type="text" class="form-control" >
+                          </div>
+                          <div class="form-group">
+                              <label>PermanentAddress</label>
+                              <input type="text" class="form-control" >
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 form-group" > 
+                                    <label>DoctorWhatsApp</label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                                <div class="col-md-6 form-group" >
+                                    <label>DoctorEmail</label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                              </div>
+                              <div class="form-row">
+                                  <div class="col-md-6 form-group"> 
+                                      <label>PaymentTypeId</label>
+                                      <input  type="text" class="form-control" >
+                                  </div>
+                                  <div class="col-md-6 form-group" >
+                                      <label>Created Date</label>
+                                      <input type="text" class="form-control" >
+                                  </div>
+                                </div> 
+                
+              </form>
+              
+        
+                <!--=============end form===========-->
+        
+                   <!-- Default form register -->
+                   </div>
+                   <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+         
+        
+            
+        
+    </div>
+  </div>
+

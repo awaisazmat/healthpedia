@@ -1,0 +1,32 @@
+.btn{
+    margin-right: 7px;   
+   }
+   .container{
+       padding-left: 0px;
+   }
+   .modal-dialog{
+       width: 577px;
+   }
+   .formset{
+       margin-left: 30px;
+       margin-right: 30px;
+   }
+   .fa {
+       font-size: 60px;
+       margin-right: 10px;
+   }
+   .modal-title{
+       font-weight: bold;
+       font-size: 30px;
+   }
+   .modal-header{
+       background-color: silver;
+       color: teal;
+   }
+   .modal-body{
+       background-color: mistyrose;
+   }
+   .modal-footer{
+       background-color: silver;
+       color: teal;
+   }
