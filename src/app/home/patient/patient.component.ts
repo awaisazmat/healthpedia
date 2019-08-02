@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-
-import { NgForm } from '@angular/forms';
-
+import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Patient } from 'src/app/shared/patient.model';
-import { PatientService } from 'src/app/shared/patient.service';
+import { PatientService } from 'src/app/shared/patient/patient.service';
 
 
 declare var $: any;
@@ -16,26 +12,12 @@ declare var $: any;
 })
 
 export class PatientComponent implements OnInit {
-  // serviceList:any;
-  // formData:any;
-   formData = {
-      SysPatientId :null,
-    PatientName : '',
-    ContactNo_ : '',
-    PatientAddress : '',
-    DoctorWhatsapp : '',
-    DoctorEmail : '',
-    PaymentTypeId : null,
-    CreatedDate : ''
-    }
-
-    
-
   
-
+  submitted = false;
+   
 
   constructor(
-
+    private fb: FormBuilder,
     private service : PatientService,
     private toastr: ToastrService
    
@@ -44,100 +26,91 @@ export class PatientComponent implements OnInit {
  
 
   ngOnInit() {
-    // this.formData=this.service.formData;
-    // setTimeout(() => {
-    //    console.log(this.formData,"formData");
-    //    console.log(this.serviceList);
-    // }, 5000);
-   
-    this.service.refreshList();
-    // this.serviceList=this.service.list;
-  
-    
-   
-    
+ 
+    this.service.refreshList(); 
   }
-  // resetForm(form?: NgForm){
-  //   if(form != null)
-  //   form.resetForm();
-  //   this.service.formData = {
-  //     SysPatientId :null,
-  //   PatientName : '',
-  //   ContactNo_ : '',
-  //   PatientAddress : '',
-  //   DoctorWhatsapp : '',
-  //   DoctorEmail : '',
-  //   PaymentTypeId : null,
-  //   CreatedDate : ''
-  //   }
-  // }
 
-  onSubmit(form: NgForm){
-    if(form.value.SysPatientId ==null)
-    this.insertRecord(form); 
+  patientForm = this.fb.group({
+    SysPatientId : [null],
+    PatientName : ['', Validators.required],
+    FatherHusband : [''],
+    ContactNo_ : [''],
+    DoctorWhatsapp : [''],
+    DoctorEmail : [''],
+    PaymentTypeId : [''],
+    CreatedDate : [''],
+    CNIC : [''],
+    DOB : [''],
+    MartialStatus : ['Single'],
+    Gender : ['Male'],
+    PermanentAddress : [''],
+    PresentAddress : [''],
+    MonthlyIncome : ['']
 
+  })
+
+  get f() { return this.patientForm.controls; }
+
+  
+  onSubmit(){
+    this.submitted = true;
+
+        // stop here if form is invalid
+        if (this.patientForm.invalid) {
+            return;
+        }
+    
+
+    
+ if(this.patientForm.value.SysPatientId==null){
+     
+      this.insertRecord();
+      
+    }
     else
-    this.updateRecord(form);
-
+      this.updateRecord();
   }
 
-  updateRecord(form: NgForm){
-    this.service.putPatient(form.value).subscribe(res=>{
+
+  insertRecord(){
+      this.service.postPatient(this.patientForm.value).subscribe(res=>{
+      console.log(this.patientForm.value);
       $("#myModal").modal("hide");
-      form.reset();
-      this.toastr.info('Updated Successfully!','Patient');
-  this.service.refreshList();
-    });
-    
-      
-   
-  
- }
+      this.toastr.success('Inserted Successfully!','Patient. Register');
+      this.patientForm.reset();   
+      this.service.refreshList();
 
-
-  populateForm(pnt: Patient){
-    this.formData=Object.assign({},pnt);
-  }
-
-  insertRecord(form: NgForm){
-    this.service.postPatient(form.value).subscribe(res=>{
-      
-      $("#myModal").modal("hide");
-      form.reset();
-      this.toastr.success('Inserted Successfully!','New Patient');
-      
-    this.service.refreshList();
+      console.log("Insert Successfull");
    
       }); 
-    
-   }
+   }  
 
-   onDelete(id: number){
+
+   updateRecord(){
+    this.service.putPatient(this.patientForm.value).subscribe(res=>{
+    $("#myModal").modal("hide");
+     this.toastr.info('Updated Successfully!','Patient. Update');
+    this.patientForm.reset();
+    this.service.refreshList();
+    console.log("Update Successfull");
+    }); 
+ }
+
+   populateForm(pnt){
+     console.log(pnt);
+     this.patientForm.patchValue(pnt);
+  }
+
+  onDelete(id: number){
     if(confirm("Are you sure?")){
     this.service.deletePatient(id).subscribe(res => {
+      this.toastr.warning('Deleted Successfully!','Patient. Remove');
       this.service.refreshList();
-      this.toastr.warning('Deleted Successfully!');
-      
-         
+      console.log("Delete Successfull");
+          
     })
   }
 }
-
-  // insertRecord(form: NgForm){
-  //   console.log(form,"insert")
-  //   this.service.postEmployee(form.value).subscribe(res=>{
-     
-  //     this.resetForm(form);
-  //     this.service.refreshList();
-  //   });
-  //  }
-
-  // populateForm(pnt: Patient){
-  //   this.service.formData=Object.assign({},pnt);
-
   
-
-  
-  // }
-
+ 
 }

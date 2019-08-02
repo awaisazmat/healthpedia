@@ -9,28 +9,25 @@
         <thead class="thead-dark">
           <tr>
             
-            <th scope="col">Reg. No</th>
-            <th scope="col">Father/Husband</th>
-            <th scope="col">ContactNo</th>
-            <th scope="col">DateOfBirth</th>
-            <th scope="col">MartialStatus</th>
-            <th scope="col">Gender</th>
+            <th scope="col">RouteType</th>
+            <th scope="col">RouteTypeName</th>
+            <th scope="col">RouteMediumId</th>
+            <th scope="col">Created_Date</th>
+            
             
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr >
+          <tr *ngFor="let route of service.list">
             
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{route.RouteType}}</td>
+            <td>{{route.RouteTypeName}}</td>
+            <td>{{route.RouteMediumId}}</td>
+            <td>{{route.Created_Date}}</td>
             
-            <td><button type="button" class="btn btn-warning btn-sm "  data-toggle="modal"  data-target="#myModal" (click)="populateForm(pnt)" ><span class="glyphicon glyphicon-pencil"> </span>  </button>  
-              <button type="button" class="btn btn-danger btn-sm " (click)="onDelete(pnt.SysPatientId)">  <span class="glyphicon glyphicon-trash"></span></button></td>
+            <td><button type="button" class="btn btn-warning btn-sm "  data-toggle="modal"  data-target="#myModal" (click)="populateForm(route)" ><span class="glyphicon glyphicon-pencil"> </span>  </button>  
+              <button type="button" class="btn btn-danger btn-sm " (click)="onDelete(route.RouteType)">  <span class="glyphicon glyphicon-trash"></span></button></td>
           </tr>
           
         </tbody>
@@ -46,125 +43,42 @@
             <div class="modal-content">
               <div class="modal-header">
                 
-                <h4 class="modal-title"><i class="fa fa-user-md"></i>Route Form</h4>
+                <h4 class="modal-title"><i class="fa fa-road"></i>Route Form</h4>
               </div>
               <div class="modal-body">
               <!--=============form==============-->
       
-              <form  class="formset">
-              
-              <div class="form-group">
-                <label>Doctor</label>
-                <input  class="form-control" >
-              </div>
-              <div class="form-row">
-                <div class="col-md-6 form-group"> 
-                    <label>CNIC</label>
-                    <input  class="form-control" >
-                </div>
-                <div class="col-md-6 form-group" >
-                    <label>Father/Husband</label> 
-                    <input type="text" class="form-control" >
-                </div>
-              </div>
-               <div class="form-row">
-                  <div class="col-md-6 form-group" > 
-                      <label>DOB</label>
-                      <input type="text" class="form-control" >
-                  </div>
-                  <div class="col-md-6 form-group">
-                      <label>ContactNumber</label>
-                      <input type="text" class="form-control" >
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="col-md-6 form-group">
-                      <label>MartialStatus</label>
-                      <select class="form-control" >
-                          
-                          <option value="1">Single</option>
-                          <option value="2">Married</option>
-                          
-                        </select>
-                  </div>
-                  <div class="col-md-6 form-group" >
-                      <label>Gender</label>
-                      <select class="form-control" >
-                        
-                          <option value="1">Male</option>
-                          <option value="2">Female</option>
-                          <option value="3">Other</option>
-                        </select>
-                  </div>
-                </div>
-              
-              <div>
-                  <label>Qualification</label>
-                <table class="table table-bordered" style="background-color:white; width: 400;">
-                  <thead >
-                    <tr>
-                      <th scope="col" style="width:12%">Qualification</th>
-                      <th scope="col" style="width:12%">Year</th>
-                      <th scope="col" style="width:12%">Institute</th>
-                      <th scope="col" style="width:12%">Country</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                    <tr >
-                      <td><input type="text" style="border:none;     width: 100px;"></td>
-                      <td><input type="text" style="border:none;    width: 100px;"></td>
-                      <td><input type="text" style="border:none;     width: 100px;"></td>
-                      <td><input type="text" style="border:none;     width: 100px;"></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-               
-                  
-                  <div class="form-row">
-                        <div class="col-md-6 form-group" > 
-                            <label>Email</label>
-                            <input  class="form-control" >
-                        </div>
-                        <div class="col-md-6 form-group" >
-                            <label>Specialization</label>
-                            <input type="text" class="form-control" >
-                        </div>
-                      </div>
-                      <div class="form-group">
-                          <label>PresentAddress</label>
-                          <input type="text" class="form-control" >
-                        </div>
-                        <div class="form-group">
-                            <label>PermanentAddress</label>
-                            <input type="text" class="form-control" >
-                          </div>
-                          <div class="form-group">
-                            <label>Hospital/Clinic Address</label>
-                            <input type="text" class="form-control" >
-                          </div>
-                          
-                            <div class="form-row">
-                                <div class="col-md-6 form-group"> 
-                                    <label>Validity Date</label>
-                                    <input  type="text" class="form-control" >
-                                </div>
-                                <div class="col-md-6 form-group" >
-                                    <label>Issue Date</label>
-                                    <input type="text" class="form-control" >
-                                </div>
-                              </div> 
-              
-            </form>
+              <form   [formGroup]="routeForm" (ngSubmit)="onSubmit()" >
+
+                <input type="hidden" formControlName="RouteType" class="form-control">
             
+            <div class="form-group">
+              <label>RouteTypeName</label>
+              <input formControlName="RouteTypeName" type="text" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.RouteTypeName.errors }">
+              <div *ngIf="submitted && f.RouteTypeName.errors" class="invalid-feedback">
+                <div *ngIf="f.RouteTypeName.errors.required">RouteTypeName is required</div>
+            </div>
+            </div>
+            <div class="form-group"> 
+                <label>RouteMediumId</label>
+                <input formControlName="RouteMediumId" type="text" class="form-control" >
+            </div>
+            <div class=" form-group"> 
+                <label>Created_Date</label>
+                <input formControlName="Created_Date" type="text" class="form-control" >
+            </div>
+           
+              <button  class="btn btn-primary">Save changes</button>
+            
+          </form>
       
               <!--=============end form===========-->
       
                  <!-- Default form register -->
                  </div>
                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </div>

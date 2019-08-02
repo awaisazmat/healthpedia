@@ -17,7 +17,7 @@
             <th scope="col">DoctorWhatsapp</th>
             <th scope="col">DoctorEmail</th>
             <th scope="col">CreatedDate</th>
-            <th scope="col">ServiceId</th>
+            <!-- <th scope="col">ServiceId</th>
             <th scope="col">Reg. No</th>
             <th scope="col">CNIC</th>
             <th scope="col">DOB</th>
@@ -31,7 +31,7 @@
             <th scope="col">year</th>
             <th scope="col">country</th>
             <th scope="col">PermanentAddress</th>
-            <th scope="col">HospitalClinicAddress</th>
+            <th scope="col">HospitalClinicAddress</th> -->
          
             
 
@@ -47,9 +47,10 @@
             <td>{{doc.ContactNo_}}</td>
             <td>{{doc.SysHospitalId}}</td>
             <td>{{doc.DoctorWhatsapp}}</td>
+            <td>{{doc.DoctorEmail}}</td>
             <td>{{doc.CreatedDate}}</td>
-            <td>{{doc.ServiceId}}</td>
-            <td>{{doc.Reg. No}}</td>
+            <!-- <td>{{doc.ServiceId}}</td>
+            <td>{{doc.RegNo}}</td>
             <td>{{doc.CNIC}}</td>
             <td>{{doc.DOB}}</td>
             <td>{{doc.FatherHusband}}</td>
@@ -62,13 +63,13 @@
             <td>{{doc.year}}</td>
             <td>{{doc.country}}</td>
             <td>{{doc.PermanentAddress}}</td>
-            <td>{{doc.HospitalClinicAddress}}</td>
+            <td>{{doc.HospitalClinicAddress}}</td> -->
             
             
             
             
-            <td><button type="button" class="btn btn-warning btn-sm "  data-toggle="modal"  data-target="#myModal" (click)="populateForm(pnt)" ><span class="glyphicon glyphicon-pencil"> </span>  </button>  
-              <button type="button" class="btn btn-danger btn-sm " (click)="onDelete(pnt.SysPatientId)">  <span class="glyphicon glyphicon-trash"></span></button></td>
+            <td><button type="button" class="btn btn-warning btn-sm "  data-toggle="modal"  data-target="#myModal" (click)="populateForm(doc)" ><span class="glyphicon glyphicon-pencil"> </span>  </button>  
+              <button type="button" class="btn btn-danger btn-sm " (click)="onDelete(doc.SysDoctorId)">  <span class="glyphicon glyphicon-trash"></span></button></td>
           </tr>
           
         </tbody>
@@ -89,49 +90,81 @@
               <div class="modal-body">
               <!--=============form==============-->
       
-              <form  class="formset">
+              <form   [formGroup]="doctorForm" (ngSubmit)="onSubmit()" >
+
+                  <input type="hidden" formControlName="SysDoctorId" class="form-control">
               
               <div class="form-group">
                 <label>Doctor</label>
-                <input  class="form-control" >
+                <input formControlName="DoctorName" type="text" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.DoctorName.errors }">
+                <div *ngIf="submitted && f.DoctorName.errors" class="invalid-feedback">
+                  <div *ngIf="f.DoctorName.errors.required">Doctor Name is required</div>
               </div>
+      
+              
+              </div>
+              
               <div class="form-row">
                 <div class="col-md-6 form-group"> 
                     <label>CNIC</label>
-                    <input  class="form-control" >
+                    <input formControlName="CNIC" class="form-control" >
                 </div>
                 <div class="col-md-6 form-group" >
                     <label>Father/Husband</label> 
-                    <input type="text" class="form-control" >
+                    <input formControlName="FatherHusband" type="text" class="form-control" >
+                </div>
+                
+              </div>
+              <div class="form-group" > 
+                <label>Reg No</label> 
+                <input formControlName="RegNo" type="text" class="form-control" >
+            </div>
+            <div class="form-group" >
+              <label>DoctorWhatsapp</label> 
+              <input formControlName="DoctorWhatsapp" type="text" class="form-control" >
+          </div>
+              <div class="form-row">
+                <div class="col-md-4 form-group"> 
+                    <label>Clinic Id</label>
+                    <input formControlName="SysClinicId" class="form-control" >
+                </div>
+                <div class="col-md-4 form-group"> 
+                  <label>Hospital Id</label>
+                  <input formControlName="SysHospitalId" class="form-control" >
+              </div>
+                <div class="col-md-4 form-group" >
+                    <label>Service Id</label> 
+                    <input formControlName="ServiceId" type="text" class="form-control" >
                 </div>
               </div>
                <div class="form-row">
                   <div class="col-md-6 form-group" > 
                       <label>DOB</label>
-                      <input type="text" class="form-control" >
+                      <input formControlName="DOB" type="text" class="form-control" >
                   </div>
                   <div class="col-md-6 form-group">
                       <label>ContactNumber</label>
-                      <input type="text" class="form-control" >
+                      <input formControlName="ContactNo_" type="text" class="form-control" >
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="col-md-6 form-group">
                       <label>MartialStatus</label>
-                      <select class="form-control" >
+                      <select formControlName="MartialStatus" class="form-control" >
                           
-                          <option value="1">Single</option>
-                          <option value="2">Married</option>
+                          <option value="Single">Single</option>
+                          <option value="Married">Married</option>
                           
                         </select>
                   </div>
                   <div class="col-md-6 form-group" >
                       <label>Gender</label>
-                      <select class="form-control" >
+                      <select formControlName="Gender" class="form-control" >
                         
-                          <option value="1">Male</option>
-                          <option value="2">Female</option>
-                          <option value="3">Other</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Other">Other</option>
                         </select>
                   </div>
                 </div>
@@ -150,49 +183,56 @@
                   <tbody>
                     
                     <tr >
-                      <td><input type="text" style="border:none;     width: 100px;"></td>
-                      <td><input type="text" style="border:none;    width: 100px;"></td>
-                      <td><input type="text" style="border:none;     width: 100px;"></td>
-                      <td><input type="text" style="border:none;     width: 100px;"></td>
+                      <td><input formControlName="Qualification" type="text" style="border:none;     width: 100px;"></td>
+                      <td><input formControlName="year" type="text" style="border:none;    width: 100px;"></td>
+                      <td><input formControlName="Institute" type="text" style="border:none;     width: 100px;"></td>
+                      <td><input formControlName="country" type="text" style="border:none;     width: 100px;"></td>
                     </tr>
                   </tbody>
-                </table>
+                </table> 
               </div>
                
                   
-                  <div class="form-row">
+                  <div class="form-row" >
                         <div class="col-md-6 form-group" > 
                             <label>Email</label>
-                            <input  class="form-control" >
+                            <input formControlName="DoctorEmail" class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.DoctorEmail.errors }" >
+                            <div *ngIf="submitted && f.DoctorEmail.errors" class="invalid-feedback">
+                              <div *ngIf="f.DoctorEmail.errors.required">Email is required</div>
+                              <div *ngIf="f.DoctorEmail.errors.email">Email must be a valid email address</div>
+                          </div>
                         </div>
                         <div class="col-md-6 form-group" >
                             <label>Specialization</label>
-                            <input type="text" class="form-control" >
+                            <input formControlName="Specialization" type="text" class="form-control" >
                         </div>
                       </div>
                       <div class="form-group">
                           <label>PresentAddress</label>
-                          <input type="text" class="form-control" >
+                          <input formControlName="PresentAddress" type="text" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label>PermanentAddress</label>
-                            <input type="text" class="form-control" >
+                            <input formControlName="PermanentAddress" type="text" class="form-control" >
                           </div>
                           <div class="form-group">
                             <label>Hospital/Clinic Address</label>
-                            <input type="text" class="form-control" >
+                            <input formControlName="HospitalClinicAddress" type="text" class="form-control" >
                           </div>
                           
                             <div class="form-row">
                                 <div class="col-md-6 form-group"> 
                                     <label>Validity Date</label>
-                                    <input  type="text" class="form-control" >
+                                    <input formControlName="validitydate" type="text" class="form-control" >
                                 </div>
                                 <div class="col-md-6 form-group" >
                                     <label>Issue Date</label>
-                                    <input type="text" class="form-control" >
+                                    <input formControlName="IssueDate" type="text" class="form-control" >
                                 </div>
                               </div> 
+
+                              <button  class="btn btn-primary">Save changes</button>
               
             </form>
             
@@ -202,7 +242,7 @@
                  <!-- Default form register -->
                  </div>
                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </div>

@@ -1,11 +1,11 @@
 export class Doctor {
-    SysDoctorId : number;
-    DoctorName : string;
-    SysClinicId : number;
-    SysHospitalId: number;
-    ContactNo_ : string;
-    DoctorWhatsapp : string;
-     DoctorEmail : string;
+    SysDoctorId : any;
+    DoctorName : any;
+    SysClinicId : any;
+    SysHospitalId: any;
+    ContactNo_ : any;
+    DoctorWhatsapp : any;
+     DoctorEmail : any;
     CreatedDate : any;
     ServiceId : any;
     RegNo : any;
@@ -16,8 +16,8 @@ export class Doctor {
     validitydate : any;
     MartialStatus : any;
     Gender : any;
-    Qualification : any;
-    Institute : string;
+    Qualification : any; 
+    Institute : any; 
     year : any;
     country : any;
     Specialization : any;

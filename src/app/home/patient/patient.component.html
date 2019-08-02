@@ -8,13 +8,23 @@
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              
+              <th scope="col">PatientId</th>
               <th scope="col">Patient</th>
               <th scope="col">Father/Husband</th>
               <th scope="col">ContactNo</th>
-              <th scope="col">DateOfBirth</th>
+              <th scope="col">DoctorWhatsapp</th>
+              <th scope="col">DoctorEmail</th>
+              <th scope="col">PaymentTypeId</th>
+              <th scope="col">CreatedDate</th>
+              <!-- <th scope="col">CNIC</th>
+              <th scope="col">DOB</th>
               <th scope="col">MartialStatus</th>
               <th scope="col">Gender</th>
+              <th scope="col">PermanentAddress</th>
+              <th scope="col">PresentAddress</th>
+              <th scope="col">MonthlyIncome</th> -->
+
+
               
               <th scope="col">Action</th>
             </tr>
@@ -22,17 +32,25 @@
           <tbody>
             <tr *ngFor="let pnt of service.list">
               
-              <td></td>
-          
-              <td></td>
-             
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{pnt.SysPatientId}}</td>
+              <td>{{pnt.PatientName}}</td>
+              <td>{{pnt.FatherHusband}}</td>
+              <td>{{pnt.ContactNo_}}</td>
+              <td>{{pnt.DoctorWhatsapp}}</td>
+              <td>{{pnt.DoctorEmail}}</td>
+              <td>{{pnt.PaymentTypeId}}</td>
+              <td>{{pnt.CreatedDate}}</td>
+              <!-- <td>{{pnt.CNIC}}</td>
+              <td>{{pnt.DOB}}</td>
+              <td>{{pnt.MartialStatus}}</td>
+              <td>{{pnt.Gender}}</td>
+              <td>{{pnt.PermanentAddress}}</td>
+              <td>{{pnt.PresentAddress}}</td>
+              <td>{{pnt.MonthlyIncome}}</td> -->
+
               
-              <td><button type="button" class="btn btn-warning btn-sm "  data-toggle="modal"  data-target="#myModal"  ><span class="glyphicon glyphicon-pencil"> </span>  </button>  
-                <button type="button" class="btn btn-danger btn-sm ">  <span class="glyphicon glyphicon-trash"></span></button></td>
+              <td><button type="button" (click)="populateForm(pnt)" class="btn btn-warning btn-sm "  data-toggle="modal"  data-target="#myModal"  ><span class="glyphicon glyphicon-pencil"> </span>  </button>  
+                <button type="button" (click)="onDelete(pnt.SysPatientId)" class="btn btn-danger btn-sm ">  <span class="glyphicon glyphicon-trash"></span></button></td>
             </tr>
             
           </tbody>
@@ -53,49 +71,54 @@
                 <div class="modal-body">
                 <!--=============form==============-->
         
-                <form  class="formset">
+                <form  [formGroup]="patientForm" (ngSubmit)="onSubmit()" >
+                    <input type="hidden" formControlName="SysPatientId" class="form-control">
                 
                 <div class="form-group">
                   <label>PatientName</label>
-                  <input  class="form-control" >
+                  <input formControlName="PatientName" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.PatientName.errors }" >
+                  <div *ngIf="submitted && f.PatientName.errors" class="invalid-feedback">
+                      <div *ngIf="f.PatientName.errors.required">Patient Name is required</div>
+                  </div>
                 </div>
                 <div class="form-row">
                   <div class="col-md-6 form-group"> 
                       <label>CNIC</label>
-                      <input  class="form-control" >
+                      <input formControlName="CNIC" class="form-control" >
                   </div>
                   <div class="col-md-6 form-group" >
                       <label>Father/Husband</label> 
-                      <input type="text" class="form-control" >
+                      <input formControlName="FatherHusband" type="text" class="form-control" >
                   </div>
                 </div>
                  <div class="form-row">
                     <div class="col-md-6 form-group" > 
                         <label>DOB</label>
-                        <input type="text" class="form-control" >
+                        <input formControlName="DOB" type="text" class="form-control" >
                     </div>
                     <div class="col-md-6 form-group">
                         <label>ContactNumber</label>
-                        <input type="text" class="form-control" >
+                        <input formControlName="ContactNo_" type="text" class="form-control" >
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="col-md-6 form-group">
                         <label>MartialStatus</label>
-                        <select class="form-control" >
+                        <select formControlName="MartialStatus" class="form-control" >
                             
-                            <option value="1">Single</option>
-                            <option value="2">Married</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
                             
                           </select>
                     </div>
                     <div class="col-md-6 form-group" >
                         <label>Gender</label>
-                        <select class="form-control" >
+                        <select formControlName="Gender" class="form-control" >
                           
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                            <option value="3">Other</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
                           </select>
                     </div>
                   </div>
@@ -104,42 +127,41 @@
                     
                     <div class="form-row">
                           <div class="col-md-6 form-group" > 
-                              <label>Email</label>
-                              <input  class="form-control" >
+                              <label>DoctorEmail</label>
+                              <input formControlName="DoctorEmail" class="form-control" >
                           </div>
                           <div class="col-md-6 form-group" >
                               <label>Monthly Income</label>
-                              <input type="text" class="form-control" >
+                              <input formControlName="MonthlyIncome" type="text" class="form-control" >
                           </div>
                         </div>
                         <div class="form-group">
                             <label>PresentAddress</label>
-                            <input type="text" class="form-control" >
+                            <input formControlName="PresentAddress" type="text" class="form-control" >
                           </div>
                           <div class="form-group">
                               <label>PermanentAddress</label>
-                              <input type="text" class="form-control" >
+                              <input formControlName="PermanentAddress" type="text" class="form-control" >
                             </div>
-                            <div class="form-row">
-                                <div class="col-md-6 form-group" > 
+                            
+                                <div class=" form-group" > 
                                     <label>DoctorWhatsApp</label>
-                                    <input type="text" class="form-control" >
+                                    <input formControlName="DoctorWhatsapp" type="text" class="form-control" >
                                 </div>
-                                <div class="col-md-6 form-group" >
-                                    <label>DoctorEmail</label>
-                                    <input type="text" class="form-control" >
-                                </div>
-                              </div>
+                                
+                             
                               <div class="form-row">
                                   <div class="col-md-6 form-group"> 
                                       <label>PaymentTypeId</label>
-                                      <input  type="text" class="form-control" >
+                                      <input formControlName="PaymentTypeId"  type="text" class="form-control" >
                                   </div>
                                   <div class="col-md-6 form-group" >
                                       <label>Created Date</label>
-                                      <input type="text" class="form-control" >
+                                      <input formControlName="CreatedDate" type="text" class="form-control" >
                                   </div>
                                 </div> 
+                    
+                  <button  class="btn btn-primary">Save changes</button>
                 
               </form>
               
@@ -149,7 +171,7 @@
                    <!-- Default form register -->
                    </div>
                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                     
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
