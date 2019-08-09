@@ -30,8 +30,8 @@ export class AmbulanceComponent implements OnInit {
     DriverId  :[''],
     AmbulanceOriginPoint :[''],
     ServiceId :[''],
-    UserId :[''],
-    Created_Date :['']
+    UserId :['']
+    // Created_Date :['']
 
 
 

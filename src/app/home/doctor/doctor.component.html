@@ -16,7 +16,7 @@
             <th scope="col">SysHospitalId</th>
             <th scope="col">DoctorWhatsapp</th>
             <th scope="col">DoctorEmail</th>
-            <th scope="col">CreatedDate</th>
+            <!-- <th scope="col">CreatedDate</th> -->
             <!-- <th scope="col">ServiceId</th>
             <th scope="col">Reg. No</th>
             <th scope="col">CNIC</th>
@@ -48,7 +48,7 @@
             <td>{{doc.SysHospitalId}}</td>
             <td>{{doc.DoctorWhatsapp}}</td>
             <td>{{doc.DoctorEmail}}</td>
-            <td>{{doc.CreatedDate}}</td>
+            <!-- <td>{{doc.CreatedDate}}</td> -->
             <!-- <td>{{doc.ServiceId}}</td>
             <td>{{doc.RegNo}}</td>
             <td>{{doc.CNIC}}</td>
@@ -222,7 +222,7 @@
                           </div>
                           
                             <div class="form-row">
-                                <div class="col-md-6 form-group"> 
+                                <div class="col-md-12 form-group"> 
                                     <label>Validity Date</label>
                                     <input formControlName="validitydate" type="text" class="form-control" >
                                 </div>
@@ -248,5 +248,5 @@
             </div>
           </div>
         </div>
-        
+        <button routerLink="/patient" type="button" class="btn btn-secondary">Patient</button>
       </div>

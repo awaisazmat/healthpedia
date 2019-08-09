@@ -6,7 +6,7 @@ export class Doctor {
     ContactNo_ : any;
     DoctorWhatsapp : any;
      DoctorEmail : any;
-    CreatedDate : any;
+    // CreatedDate : any;
     ServiceId : any;
     RegNo : any;
     CNIC : any;

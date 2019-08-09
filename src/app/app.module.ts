@@ -22,6 +22,7 @@ import { RouteComponent } from './home/route/route.component';
 import { ProvinceComponent } from './home/province/province.component';
 import { RoutemediumComponent } from './home/routemedium/routemedium.component';
 import { ServiceComponent } from './home/service/service.component';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { ServiceComponent } from './home/service/service.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    DatePickerModule,
     ToastrModule.forRoot()
   ],
   providers: [],

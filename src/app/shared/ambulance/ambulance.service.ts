@@ -16,6 +16,7 @@ export class AmbulanceService {
   refreshList(){
     return this.http.get(this.rootURL+'/Ambulance/AllAmbulanceList')
     .toPromise().then(res => this.list = res as Ambulance[]);
+   
   }
 
   postAmbulance (AmbulanceForm){

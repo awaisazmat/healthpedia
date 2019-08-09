@@ -5,5 +5,5 @@ export class Ambulance {
     AmbulanceOriginPoint :any;
     ServiceId :any;
     UserId :any;
-    Created_Date :any;
+    // Created_Date :any;
 }

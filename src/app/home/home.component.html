@@ -1,10 +1,117 @@
-<div>
-    <button routerLink="/patient" type="button" class="btn btn-secondary">Patient</button>
+
+    <div class="btnall" style="text-align: center;">
+            <button routerLink="/patient" type="button" class="btn btn-secondary">Patient</button>
 
 
-    <button routerLink="/doctor" type="button" class="btn btn-secondary">Doctor</button>
+            <button routerLink="/doctor" type="button" class="btn btn-secondary">Doctor</button>
+        
+        
+            <!-- Appointment Button -->
+            <div class="appointmentbtn">
+                <button data-toggle="modal"  data-target="#myModalappointment">Appointment</button>
+            </div>
+    </div>
+    
 
-    <button routerLink="/ambulance" type="button" class="btn btn-secondary">Ambulance</button>
+    <!-- Appointment Modal -->
+    <!-- Modal -->
+    <div class="modal fade " id="myModalappointment" role="dialog">
+        <div class="modal-dialog modal-lg ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"><i class="fa fa-user-md"></i>Doctor Form</h4>
+            </div>
+            <div class="modal-body modalbody">
+            <!--=============form==============-->
+                <form>
+                    <div class="row">
+                        <div class="col-4">
+                                <label for="">Name</label><br>
+                                <input    type="text">
+                        </div>
+                        <div class="col-4">
+                                <label for="">Area</label><br>
+                                <select name="" id="">
+                                    <option value="">Area1</option>
+                                    <option value="">Area2</option>
+                                    <option value="">Area3</option>
+                                    <option value="">Area4</option>
+                                    <option value="">Area5</option>
+                                    <option value="">Area6</option>
+                                </select>
+                        </div>
+                        <div class="col-4">
+                                <label for="">Major Complain</label><br>
+                                <input type="text">
+            
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-4">
+                                    <label for="">Appointment Date</label><br>
+                                     <ejs-datepicker  id='datepicker' placeholder='Select a date' 
+                                     name="date" 
+                                     type="date" 
+                                     class="aaa"
+                                     [min]='minDate' [max]='maxDate'></ejs-datepicker>
+                            </div>
+                            <div class="col-4">
+                                    <label for="">Payment Method</label><br>
+                                    <select name="" id="">
+                                    <option value="">Method 1</option>
+                                    <option value="">Method 2</option>
+                                    <option value="">Method 3</option>
+                    </select>
+                            </div>
+                            <div class="col-4">      
+                              <label for="">Contact No</label><br>
+                              <input type="text">
+                
+                            </div>
+                        </div>
+                    <label for="">Service Selection</label><br>
+                    <label class="container">One
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                          </label>
+                          
+                          <label class="container">Two
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                          
+                          <label class="container">Three
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                    
+
+                    
+
+                    
+                    
+
+                    
+
+
+                    
+
+
+                </form>
+            <!--=============end form===========-->
+    
+               <!-- Default form register -->
+               </div>
+               <div class="modal-footer">
+                  
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Appointment Modal End -->
+
+    <!-- <button routerLink="/ambulance" type="button" class="btn btn-secondary">Ambulance</button>
 
     <button routerLink="/pharmacy" type="button" class="btn btn-secondary">Pharmacy</button>
 
@@ -26,6 +133,4 @@
 
     <button routerLink="/article" type="button" class="btn btn-secondary">Article</button>
 
-    <button routerLink="/currency" type="button" class="btn btn-secondary">Currency</button>
-
-</div>
+    <button routerLink="/currency" type="button" class="btn btn-secondary">Currency</button> -->
