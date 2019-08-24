@@ -25,8 +25,7 @@ export class ServiceComponent implements OnInit {
     
     ServiceId :[null],
     ServiceName :['', Validators.required],
-    Charges  :[''],
-    CreatedDate :['']
+    Charges  :['']
 
 
 

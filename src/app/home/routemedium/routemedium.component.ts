@@ -24,8 +24,7 @@ export class RoutemediumComponent implements OnInit {
   routeMediumForm = this.fb.group({
     
     RouteMediumId :[null],
-    RouteMediumName :['', Validators.required],
-    Created_Date  :['']
+    RouteMediumName :['', Validators.required]
     
 
 

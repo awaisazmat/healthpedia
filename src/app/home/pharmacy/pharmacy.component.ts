@@ -35,8 +35,7 @@ export class PharmacyComponent implements OnInit {
     ProvinceId :[''],
     PaymentTypeId :[''],
     ProductId :[''],
-    UserId :[''],
-    CreatedDate :['']
+    UserId :['']
 
 
 

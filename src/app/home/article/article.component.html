@@ -51,7 +51,7 @@
               <div class="modal-body">
               <!--=============form==============-->
       
-              <form  class="formset"    [formGroup]="articleForm">
+              <form     [formGroup]="articleForm" (ngSubmit)="onSubmit()">
                   <input type="hidden" formControlName="ArticleId" class="form-control">
                   <div class="form-group">
                       <label>ArticleName</label>
@@ -69,16 +69,13 @@
                         <label>Parts</label>
                         <input formControlName="Parts" type="text" class="form-control" >
                     </div>
-                    <div class="form-group"> 
-                        <label>Created_Date</label>
-                        <input formControlName="Created_Date" type="text" class="form-control" >
-                    </div>
+                    
                     <div class="form-group"> 
                         <label>UserId</label>
                         <input formControlName="UserId" type="text" class="form-control" >
                     </div>
               
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                    <button  class="btn btn-primary">Save changes</button>
             </form>
             
       

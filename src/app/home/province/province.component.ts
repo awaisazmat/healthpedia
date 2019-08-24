@@ -24,8 +24,7 @@ export class ProvinceComponent implements OnInit {
   provinceForm = this.fb.group({
    
     ProvinceId :[null],
-    ProvinceName :['', Validators.required],
-    CreatedDate  :['']
+    ProvinceName :['', Validators.required]
 
   })
 

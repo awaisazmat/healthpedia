@@ -29,9 +29,7 @@ export class MedicineComponent implements OnInit {
     MedicineExpiryDate :[''],
     MedicineStock :[''],
     MedicineUnit :[''],
-    PharmacyId :[''],
-    Created_Date :['']
-
+    PharmacyId :['']
 
 
   })

@@ -1,10 +1,19 @@
 
     <div class="btnall" style="text-align: center;">
             <button routerLink="/patient" type="button" class="btn btn-secondary">Patient</button>
-
-
             <button routerLink="/doctor" type="button" class="btn btn-secondary">Doctor</button>
-        
+            <button routerLink="/ambulance" type="button" class="btn btn-secondary">Ambulance</button>
+            <button routerLink="/pharmacy" type="button" class="btn btn-secondary">Pharmacy</button>
+            <button routerLink="/city" type="button" class="btn btn-secondary">City</button>
+            <button routerLink="/routemedium" type="button" class="btn btn-secondary">RouteMedium</button>
+            <button routerLink="/province" type="button" class="btn btn-secondary">Province</button>
+            <button routerLink="/service" type="button" class="btn btn-secondary">Service</button> 
+            <button routerLink="/medicine" type="button" class="btn btn-secondary">Medicine</button>
+            <button routerLink="/paymentdetailsetup" type="button" class="btn btn-secondary">PaymentDetailsetup</button>
+            <button routerLink="/area" type="button" class="btn btn-secondary">Area</button>
+            <button routerLink="/route" type="button" class="btn btn-secondary">Route</button>
+            <button routerLink="/article" type="button" class="btn btn-secondary">Article</button>
+            <button routerLink="/currency" type="button" class="btn btn-secondary">Currency</button> 
         
             <!-- Appointment Button -->
             <div class="appointmentbtn">
@@ -38,7 +47,7 @@
                                     <option value="">Area4</option>
                                     <option value="">Area5</option>
                                     <option value="">Area6</option>
-                                </select>
+                                </select>    
                         </div>
                         <div class="col-4">
                                 <label for="">Major Complain</label><br>
@@ -52,6 +61,7 @@
                                      <ejs-datepicker  id='datepicker' placeholder='Select a date' 
                                      name="date" 
                                      type="date" 
+
                                      class="aaa"
                                      [min]='minDate' [max]='maxDate'></ejs-datepicker>
                             </div>
@@ -70,33 +80,42 @@
                             </div>
                         </div>
                     <label for="">Service Selection</label><br>
-                    <label class="container">One
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                          </label>
-                          
-                          <label class="container">Two
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                          </label>
-                          
-                          <label class="container">Three
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                          </label>
-                    
-
-                    
-
-                    
-                    
-
-                    
-
-
-                    
-
-
+                    <div class="container text-center">
+ 
+                      <button mat-button (click)="openDialog('Add',{})" mat-flat-button color="primary">Add Row</button>
+                     
+                      <table mat-table [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
+                     
+                        <!--- Note that these columns can be defined in any order.
+                            The actual rendered columns are set as a property on the row definition" -->
+                     
+                        <!-- Id Column -->
+                        <ng-container matColumnDef="id">
+                          <th mat-header-cell *matHeaderCellDef> ID. </th>
+                          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
+                     
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                          <th mat-header-cell *matHeaderCellDef> Name </th>
+                          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+                     
+                        <!-- Action Column -->
+                        <ng-container matColumnDef="action">
+                          <th mat-header-cell *matHeaderCellDef> Action </th>
+                          <td mat-cell *matCellDef="let element" class="action-link"> 
+                            <a (click)="openDialog('Update',element)">Edit</a> | 
+                            <a (click)="openDialog('Delete',element)">Delete</a>  
+                          </td>
+                        </ng-container>
+                     
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table>
+                     
+                    </div>
+                     
                 </form>
             <!--=============end form===========-->
     
@@ -111,26 +130,4 @@
       </div>
     <!-- Appointment Modal End -->
 
-    <!-- <button routerLink="/ambulance" type="button" class="btn btn-secondary">Ambulance</button>
-
-    <button routerLink="/pharmacy" type="button" class="btn btn-secondary">Pharmacy</button>
-
-    <button routerLink="/city" type="button" class="btn btn-secondary">City</button>
-
-    <button routerLink="/route" type="button" class="btn btn-secondary">Route</button>
-
-    <button routerLink="/routemedium" type="button" class="btn btn-secondary">RouteMedium</button>
-
-    <button routerLink="/province" type="button" class="btn btn-secondary">Province</button>
-
-    <button routerLink="/service" type="button" class="btn btn-secondary">Service</button>
-
-    <button routerLink="/medicine" type="button" class="btn btn-secondary">Medicine</button>
-
-    <button routerLink="/paymentdetailsetup" type="button" class="btn btn-secondary">PaymentDetailsetup</button>
-
-    <button routerLink="/area" type="button" class="btn btn-secondary">Area</button>
-
-    <button routerLink="/article" type="button" class="btn btn-secondary">Article</button>
-
-    <button routerLink="/currency" type="button" class="btn btn-secondary">Currency</button> -->
+   

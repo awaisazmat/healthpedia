@@ -24,8 +24,7 @@ export class CurrencyComponent implements OnInit {
   currencyForm = this.fb.group({
    
     CurrencyId :[null],
-    CurrencyName :['', Validators.required],
-    CreateDate_  :['']
+    CurrencyName :['', Validators.required]
     
 
 

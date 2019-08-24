@@ -26,7 +26,7 @@ export class CityComponent implements OnInit {
     CityId :[null],
     CityName :['', Validators.required],
     ProvinceId  :[''],
-    CreatedDate_ :['']
+    
    
 
 

@@ -29,7 +29,6 @@ export class ArticleComponent implements OnInit {
     ArticleName :['', Validators.required],
     LastRead  :[''],
     Parts :[''],
-    Created_Date :[''],
     UserId :['']
     
 

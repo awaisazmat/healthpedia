@@ -25,8 +25,7 @@ export class PaymentdetailsetupComponent implements OnInit {
    
     PaymentTypeId :[null],
     PaymentName :['', Validators.required],
-    PaymentMedium  :[''],
-    Created_Date :['']
+    PaymentMedium  :['']
 
 
 

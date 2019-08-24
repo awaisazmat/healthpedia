@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from "@angular/forms"; 
 import {ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './home/patient/patient.component';
@@ -23,53 +21,54 @@ import { ProvinceComponent } from './home/province/province.component';
 import { RoutemediumComponent } from './home/routemedium/routemedium.component';
 import { ServiceComponent } from './home/service/service.component';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import {  MatTableModule,MatDialogModule,MatFormFieldModule,MatInputModule,MatButtonModule
+} from '@angular/material';
+import { DialogBoxxComponent } from './dialog-boxx/dialog-boxx.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientComponent,
-   
     HomeComponent,
-   
     DoctorComponent,
-   
     AmbulanceComponent,
-   
     PharmacyComponent,
-   
     AreaComponent,
-   
     ArticleComponent,
-   
     CityComponent,
-   
     CurrencyComponent,
-   
     MedicineComponent,
-   
     PaymentdetailsetupComponent,
-   
     RouteComponent,
-   
     ProvinceComponent,
-   
     RoutemediumComponent,
-   
-    ServiceComponent
+    ServiceComponent,
+    DialogBoxxComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    
+    NgZorroAntdModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     DatePickerModule,
+    MatTableModule, 
+    MatDialogModule, 
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  entryComponents: [
+    DialogBoxxComponent
+  ],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

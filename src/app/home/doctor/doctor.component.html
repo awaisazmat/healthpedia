@@ -1,3 +1,104 @@
+<h1>sdfdsfvskdnvskjvkdsvkdsv nkds nvksdv ks</h1>
+<div class="doctorprofile">
+  <div class="row">
+    <div class="col-2">
+
+    </div>
+    <div class="col-8">
+      
+        <nz-tabset [nzTabPosition]="'text-center'" [nzType]="'card'">
+          <nz-tab *ngFor="let tab of tabs1" [nzTitle]="titleTemplate">
+              <ng-template  #titleTemplate> <i nz-icon [nzType]="tab.icon"></i><span style="    letter-spacing: 2px;">{{ tab.name }}</span> </ng-template> 
+              <div class="personalinfo">
+                <form action="">
+                  <div class="row">
+                    <div class="col-8">
+                        <div class="form-group" >
+                             <label>Name:</label> 
+                            <input ftype="text" placeholder="Please Enter your Name" class="form-control" >
+                        </div>
+                        <div class="form-group" >
+                            <label>Father/Husban Name:</label> 
+                           <input ftype="text" placeholder="Please Enter your Father/Husband Name" class="form-control" >
+                       </div>
+                       <div class="form-group" >
+                          <label>CNIC:</label> 
+                         <input ftype="text" placeholder="Please Enter your CNIC number(Without Dashes)" class="form-control" >
+                     </div>
+                     <div class="row">
+                       <div class="col-6">
+                          <div class="form-group" >
+                              <label>Mobile No:</label> 
+                             <input ftype="text" placeholder="0123 1234567" class="form-control" >
+                         </div>
+                       </div>
+                       <div class="col-6">
+                          <div class="form-group" >
+                              <label>Another Number:</label> 
+                             <input ftype="text" placeholder="0123 1234567" class="form-control" >
+                         </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-6">
+                           <div class="form-group" >
+                               <label>Gender:</label> 
+                              <select name="" id="" class="form-control">
+                                <option value="">
+                                  Male
+                                </option>
+                                <option value="">
+                                  Female
+                                </option>
+                                <option value="">
+                                  Other
+                                </option>
+                              </select>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group" >
+                               <label>Date of Birth:</label> 
+                              <input ftype="text"  class="form-control" >
+                          </div>
+                         </div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      
+                      </div>
+                  </div>
+                </form>
+              </div>
+          </nz-tab>
+          <nz-tab *ngFor="let tab of tabs2" [nzTitle]="titleTemplate">
+              <ng-template #titleTemplate> <i nz-icon [nzType]="tab.icon"></i><span style="    letter-spacing: 2px;">{{ tab.name }}</span> </ng-template> 
+              Content of Tab Pane 2
+          </nz-tab>
+          <nz-tab *ngFor="let tab of tabs3" [nzTitle]="titleTemplate">
+              <ng-template #titleTemplate> <i nz-icon [nzType]="tab.icon"></i><span style="    letter-spacing: 2px;">{{ tab.name }}</span> </ng-template> 
+              Content of Tab Pane 3
+          </nz-tab>
+          <nz-tab *ngFor="let tab of tabs4" [nzTitle]="titleTemplate">
+              <ng-template #titleTemplate> <i nz-icon [nzType]="tab.icon"></i><span style="    letter-spacing: 2px;">{{ tab.name }}</span></ng-template> 
+              Content of Tab Pane 4
+          </nz-tab>
+        </nz-tabset>
+     
+    </div>
+    <div class="col-2">
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
 <div class="jumbotron jumbotron-fluid">
   <h3 class="display-4 text-center"> Doctor</h3>
   <div class="container">
