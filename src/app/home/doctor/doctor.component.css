@@ -1,15 +1,104 @@
-/* tab heading senter */
-/* .tabs{
-    text-align: center;
-} */
+
 .col-8 i{
     font-size: 24px;
 }
-/* .tabs {
-    font-size: 16px;
-    letter-spacing: 2px;
+.personalinfo{
+    margin: 61px;
+}
+.qualification{
+    margin: 61px;
+}
+.experience{
+    margin: 61px;
+}
+.option{
+    margin: 61px;
+}
+.outline{
+    border: 2px solid red;
+    padding: 17px;
+}
+.addexperience{
+    text-align: right;
+}
+.addexperience img{
+    width: 10%;
+}
+.addexperience p{
+    color: #4DCFE0; 
+    letter-spacing:1px;
+    font-weight:500;
+}
+.table{
+    margin-top: 47px;
+}
+.head{
+    text-align: center;
+    margin-bottom: 43px;
+    margin-top: 41px;
+}
+.qhead{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.qhead h4{
+    color: red;
+    font-weight: 600;
+}
+.head h4{
+    color: red;
+    font-weight: 600;
+}
+.head h4 span{
+    color: black;
+    font-size: 13px;
+}
+/* upload profile photo */
+.avatar {
+    width: 200px;
+    height: 128px;
+  }
+  .upload-icon {
+    font-size: 500px;
+    color: #999;
+  }
+  .ant-upload-text {
+    margin-top: 15px;
+    color: #666;
+  }
+ .note{
+    text-align: center;
+    margin-top: 34px;
+    margin-bottom: 45px;
+ }
+ .note .span1{
+    color: red;
+    font-size: 23px;
+    font-weight: 600;
+ }
+ .note p{
+    letter-spacing: 1px;
+ }
+ .btnsave button{
+    border: 1px solid black;
+    background: #4DCFE0;
+    color: white;
+    font-size: 18px;
     font-weight: 500;
-} */
+    letter-spacing: 1px;
+    padding: 4px 21px;
+    margin-left: 5px;
+ }
+ .btnsave{
+    margin-top: 23px;
+    text-align: right;
+ }
+ .radiobtn1{
+     display: flex;
+     
+ }
+
 
 
 

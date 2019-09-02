@@ -27,6 +27,9 @@ import { FormsModule } from '@angular/forms';
 import {  MatTableModule,MatDialogModule,MatFormFieldModule,MatInputModule,MatButtonModule
 } from '@angular/material';
 import { DialogBoxxComponent } from './dialog-boxx/dialog-boxx.component';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 
 @NgModule({
@@ -63,6 +66,9 @@ import { DialogBoxxComponent } from './dialog-boxx/dialog-boxx.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    NzUploadModule,
+    NzTableModule,
+    NzDatePickerModule,
     ToastrModule.forRoot()
   ],
   entryComponents: [

@@ -1,4 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-lists/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-calendars/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-angular-calendars/styles/material.css';
+
 
 
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+.ant-upload.ant-upload-select-picture-card {
+   
+    width: 228px !important ;
+    height: 248px !important;
+}
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
+  
+    background: #4DCFE0 !important;
+    border: 1px solid black !important;
+    
+}
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active {
+    
+    background: white !important;
+    border: 1px solid black !important;
+}
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-nav-container {
+    
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+#datepicker .e-input-group{
+    
+    width: 100%;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    padding: 2px;
+}
