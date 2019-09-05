@@ -722,8 +722,8 @@
                     <td>{{data.spYear}}</td>
                     <td>{{data.spCity}}</td>
                     <td>{{data.spCountry}}</td>
-                    <td><a style="Color:blue; font-weight:500;" >Remove</a></td>
-                    <!-- (click)="removeRow(i)" -->
+                    <td><a style="Color:blue; font-weight:500;" (click)="removeRow(i)" >Remove</a></td>
+                    
                   </tr>
                 </tbody>
               </nz-table>
@@ -889,8 +889,8 @@
                             <td>{{data.durationFrom}}</td>
                             <td>{{data.durationTo}}</td>
                             <td>{{data.durationTotal}}</td>
-                            <td><a style="Color:blue; font-weight:500;" >Remove</a></td>
-                            <!-- (click)="deleteRow(i)" -->
+                            <td><a style="Color:blue; font-weight:500;" (click)="deleteRow(i)" >Remove</a></td>
+                            
                           </tr>
                         </tbody>
                       </nz-table>
