@@ -22,6 +22,12 @@
     border: 1px solid black !important;
     
 }
+.ant-tabs-nav .ant-tabs-tab {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
 .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active {
     
     background: white !important;
