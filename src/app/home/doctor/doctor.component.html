@@ -763,8 +763,13 @@
                   </div>
                   <div class="col-6">
                     <div class="form-group" >
-                      <label for="">City:</label>
-                      <input formControlName="exCity" type="text"  class="form-control"  >
+                        <label for="">Country:</label>
+                        <select formControlName="exCountry" class="country_selector form-control">
+                          <option value="PK">Pakistan</option>  
+                          
+                          
+                       </select>
+                      
                    </div>
                   </div>
                 </div>
@@ -772,18 +777,48 @@
                     <div class="col-6">
                       <div class="form-group" >
                         <label for="">State/Province:</label>
-                        <input formControlName="exState" type="text"  class="form-control"  >
+                        <select formControlName="exState" (change)="changeState($event.target.value)" class="country_selector form-control">
+                            <option *ngFor ="let count of stateList">{{count.name}}</option>  
+                            
+                            
+                         </select>
                      </div>
                     </div>
                     <div class="col-6">
                       <div class="form-group" >
-                        <label for="">Country:</label>
-                        <select formControlName="exCountry" class="country_selector form-control">
-                          <option value="PK">Pakistan</option>  
-                          
-                          
-                       </select>
+                          <label for="">City:</label>
+                          <select formControlName="exCity"  class="country_selector form-control">
+                              <option *ngFor ="let city of cities">{{city}} </option>  
+                              
+                              
+                           </select>
                      </div>
+
+
+
+
+
+                     <!-- <label>Country</label>
+                     <div  title="Please select the country that the customer will primarily be served from">
+                       <select placeholder="Phantasyland" (change)="changeCountry($event.target.value)">
+                             <option *ngFor ="let city of cities">{{city}} </option>
+                         </select>
+                     </div>
+                     
+                     
+                     <label>City</label>
+                     <div title="Please select the city that the customer is primarily to be served from.">
+                       <select placeholder="Anycity">
+                             <option *ngFor ="let city of cities">{{city}} </option>
+                       </select>
+                     </div> -->
+
+
+
+
+
+
+
                     </div>
                   </div>
                 <div class="row">
@@ -1258,3 +1293,10 @@
         </div>
         <button routerLink="/patient" type="button" class="btn btn-secondary">Patient</button>
       </div>
+
+
+
+
+
+
+     

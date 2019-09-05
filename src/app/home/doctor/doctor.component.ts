@@ -13,6 +13,23 @@ declare var $: any;
   styleUrls: ['./doctor.component.css']
 })
 export class DoctorComponent implements OnInit {
+  stateList: Array<any> = [
+    { name: '', cities:[] },
+    { name: 'Punjab', cities: ['Lahore', 'Rawalpindi', 'Faisalabad'] },
+    { name: 'Sindh', cities: ['Larkana', 'Karachi', 'Hyderabad'] },
+    { name: 'KPK', cities: ['Peshawar', 'Kohat', 'Banu'] },
+    { name: 'Balochistan', cities: ['Quetta', 'Gawadar', 'Turbat'] },
+    { name: 'AJK', cities: ['Bhimber', 'Mirpur', 'Kotli'] },
+    { name: 'Gilgit Baltistan', cities: ['Skardu', 'Gilgit', 'Chilas'] },
+  ];
+  cities: Array<any>;
+  changeState(count) {
+    this.cities = this.stateList.find(con => con.name == count).cities;
+  }
+
+
+
+
   dateFormat = 'dd/MM/yyyy';
   public minDate: Date = new Date("05/27/1900");
   public maxDate: Date = new Date();
