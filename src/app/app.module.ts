@@ -30,6 +30,7 @@ import { DialogBoxxComponent } from './dialog-boxx/dialog-boxx.component';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { HospitalComponent } from './home/hospital/hospital.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     ProvinceComponent,
     RoutemediumComponent,
     ServiceComponent,
+    HospitalComponent,
     DialogBoxxComponent
   ],
   imports: [

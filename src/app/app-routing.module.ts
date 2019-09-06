@@ -16,6 +16,7 @@ import { ProvinceComponent } from './home/province/province.component';
 import { RouteComponent } from './home/route/route.component';
 import { RoutemediumComponent } from './home/routemedium/routemedium.component';
 import { ServiceComponent } from './home/service/service.component';
+import { HospitalComponent } from './home/hospital/hospital.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'province', component:  ProvinceComponent},
   { path: 'route', component: RouteComponent },
   { path: 'routemedium', component: RoutemediumComponent},
-  { path: 'service', component: ServiceComponent }
+  { path: 'service', component: ServiceComponent },
+  { path: 'hospital', component: HospitalComponent }
 ];
 
 @NgModule({

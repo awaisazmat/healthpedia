@@ -1,0 +1,35 @@
+<div class="head">
+  <h4>HOSPITAL/CLINIC REGESTERATION</h4>
+</div>
+<div class="doctorprofile">
+<div class="row">
+  <div class="col-2">
+
+  </div>
+  <div class="col-8">
+    
+      <nz-tabset [nzTabPosition]="'text-center'" [nzType]="'card'">
+        <nz-tab *ngFor="let tab of tabs1" [nzTitle]="titleTemplate">
+            <ng-template  #titleTemplate> <i nz-icon [nzType]="tab.icon"></i><span style="    letter-spacing: 2px;">{{ tab.name }}</span> </ng-template> 
+            
+        </nz-tab>
+        <nz-tab *ngFor="let tab of tabs2" [nzTitle]="titleTemplate">
+            <ng-template #titleTemplate> <i nz-icon [nzType]="tab.icon"></i><span style="    letter-spacing: 2px;">{{ tab.name }}</span> </ng-template> 
+           
+        </nz-tab>
+        <nz-tab *ngFor="let tab of tabs3" [nzTitle]="titleTemplate">
+            <ng-template #titleTemplate> <i nz-icon [nzType]="tab.icon"></i><span style="    letter-spacing: 2px;">{{ tab.name }}</span> </ng-template> 
+            
+        </nz-tab>
+        <nz-tab *ngFor="let tab of tabs4" [nzTitle]="titleTemplate">
+            <ng-template #titleTemplate> <i nz-icon [nzType]="tab.icon"></i><span style="    letter-spacing: 2px;">{{ tab.name }}</span></ng-template> 
+            
+        </nz-tab>
+      </nz-tabset>
+   
+  </div>
+  <div class="col-2">
+    
+  </div>
+</div>
+</div>
